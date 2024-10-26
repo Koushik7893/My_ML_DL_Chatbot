@@ -121,18 +121,15 @@ available_params = {
 params = {
         'LogisticRegression': {
             'penalty': ['l1', 'l2', 'elasticnet'], 
-            'C': [0.1, 0.5, 1.0, 10.0], 
-            'fit_intercept': [True, False],            
+            'C': [0.1, 0.5, 1.0, 10.0],            
             'solver': ['lbfgs', 'liblinear', 'saga', 'newton-cg', 'sag'], 
-            'max_iter': [100, 200, 300, 500],  
-            'n_jobs': [-1]
+            'max_iter': [100, 200, 300],  
         },
         'SVC': {
             'C': [0.1, 0.5, 1.0, 10.0],
             'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
             'degree': [2, 3, 4, 5],
             'gamma': ['scale', 'auto', 0.1, 1.0, 10.0],
-            'probability': [True, False]
         },
         'GaussianNB': {
             'var_smoothing': [1e-9, 1e-8, 1e-7, 1e-6]
@@ -154,7 +151,6 @@ params = {
             'criterion': ['gini', 'entropy'],
             'max_depth': [None, 5, 10, 15],
             'min_samples_split': [2, 5, 10],
-            'n_jobs': [-1]
         },
         'GradientBoostingClassifier': {
             'learning_rate': [0.01, 0.1, 0.2],
@@ -214,7 +210,6 @@ params = {
             'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
             'max_depth': [None, 5, 10, 15],
             'min_samples_split': [2, 5, 10],
-            'n_jobs': [-1]
         },
         'GradientBoostingRegressor': {
             'learning_rate': [0.01, 0.1, 0.2],

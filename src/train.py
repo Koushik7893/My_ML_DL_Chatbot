@@ -2,7 +2,7 @@ from src.components.Data_Ingestion import Data
 from src.pipelines.train_models import ModelIntializer
 from src.pipelines.models_params import ParamsInit
 from src.components.Data_Transformation import ColumnTransformWithSplit
-from src.helper import datasets_path, save_pkl_file, load_pkl_file, compute_classification_results, compute_regression_results, all_results_json
+from src.helper import datasets_path, save_pkl_file, load_pkl_file, compute_classification_results, compute_regression_results, all_results_json, json_as
 import os
 columntransformsplit = ColumnTransformWithSplit()
 mod_int = ModelIntializer()
@@ -48,12 +48,12 @@ class ModelTraining:
                             model_res = compute_classification_results(y_pred, self.y_test)
                         else:
                             model_res = compute_regression_results(y_pred, self.y_test)
-                        model_results[model_name] = {'best_parms':best_params,**model_res}   
-                    print(model_name)
+                        model_results[model_name] = {'best_parms':best_params,**model_res}  
+                        
+
                 print(dataset_name)
                 if model_results:                       
                     dataset_accuracy[dataset_name] = model_results
-            print(typetotrain)
             if dataset_accuracy:
                 self.results[typetotrain] = dataset_accuracy
                 
