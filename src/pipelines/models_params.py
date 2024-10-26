@@ -120,7 +120,7 @@ available_params = {
 }
 params = {
         'LogisticRegression': {
-            'penalty': ['l1', 'l2', 'elasticnet', None], 
+            'penalty': ['l1', 'l2', 'elasticnet'], 
             'C': [0.1, 0.5, 1.0, 10.0], 
             'fit_intercept': [True, False],            
             'solver': ['lbfgs', 'liblinear', 'saga', 'newton-cg', 'sag'], 
@@ -146,7 +146,7 @@ params = {
         'DecisionTreeClassifier': {
             'criterion': ['gini', 'entropy'],
             'splitter': ['best', 'random'],
-            'max_depth': [None, 5, 10, 15],
+            'max_depth': [None, 5, 10, 15,30],
             'min_samples_split': [2, 5, 10]
         },
         'RandomForestClassifier': {
@@ -184,7 +184,8 @@ params = {
         },
         'Ridge': {
             'alpha': [0.1, 1.0, 10.0],
-            'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga']
+            'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga'],
+            'tol': [0.0001, 0.001, 0.01]
         },
         'ElasticNet': {
             'alpha': [0.1, 1.0, 10.0],
@@ -193,7 +194,7 @@ params = {
         },
         'SVR': {
             'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-            'degree': [2, 3, 4],
+            'degree': [2, 3, 4, 10],
             'C': [0.1, 1.0, 10.0],
             'epsilon': [0.01, 0.1, 0.5]
         },
@@ -203,14 +204,14 @@ params = {
             'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
         },
         'DecisionTreeRegressor': {
-            'criterion': ['mse', 'mae'],
+            'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
             'splitter': ['best', 'random'],
             'max_depth': [None, 5, 10, 15],
             'min_samples_split': [2, 5, 10]
         },
         'RandomForestRegressor': {
             'n_estimators': [50, 100, 200],
-            'criterion': ['mse', 'mae'],
+            'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
             'max_depth': [None, 5, 10, 15],
             'min_samples_split': [2, 5, 10],
             'n_jobs': [-1]
